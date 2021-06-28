@@ -20,6 +20,7 @@ public class Add_Fragment extends Fragment {
     DatabaseHelper db;
     EditText name, phone, email;
     ProgressBar progressBar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,22 +29,16 @@ public class Add_Fragment extends Fragment {
         name = view.findViewById(R.id.editTextTextPersonName);
         phone = view.findViewById(R.id.editTextTextPersonPhone);
         email = view.findViewById(R.id.editTextTextPersonEmail);
-        progressBar = view.findViewById(R.id.linearProgressIndicator);
 
         db = new DatabaseHelper(getContext());
         Button Ragister = view.findViewById(R.id.button);
         Ragister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean check = db.InsertData(name.getText().toString(),phone.getText().toString(),email.getText().toString());
-                if (check == true)
-                {
-                    progressBar.setVisibility(View.VISIBLE);
+                boolean check = db.InsertData(name.getText().toString(), phone.getText().toString(), email.getText().toString());
+                if (check == true) {
                     Toast.makeText(getContext(), "Successful", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.INVISIBLE);
-                }
-                else
-                {
+                } else {
                     Toast.makeText(getContext(), "faild", Toast.LENGTH_SHORT).show();
                 }
             }

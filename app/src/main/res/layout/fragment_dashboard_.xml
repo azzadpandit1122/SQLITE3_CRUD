@@ -13,16 +13,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginTop="412dp"
-        android:text="Add"
+        android:text="Create"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/remove"
+        android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="76dp"
-        android:text="Remove"
+        android:text="Read"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/add"
         app:layout_constraintHorizontal_bias="0.0"
@@ -40,10 +40,10 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/view"
+        android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="view"
-        app:layout_constraintBottom_toBottomOf="@+id/remove"
+        android:text="DELETE"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/Update" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,19 +46,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonPhone" />
 
-    <
-        com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/linearProgressIndicator"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_margin="16dp"
-        android:max="100"
-        app:indeterminateAnimationType="contiguous"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonEmail" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"

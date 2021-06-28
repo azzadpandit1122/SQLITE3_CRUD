@@ -13,7 +13,7 @@ import com.example.sqlite3.R;
 
 public class Dashboard_Fragment extends Fragment {
 
-    Button add, remove, update, read;
+    Button add, viewData, update, delete;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -21,19 +21,19 @@ public class Dashboard_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dashboard_, container, false);
         add = view.findViewById(R.id.add);
-        remove = view.findViewById(R.id.remove);
+        viewData = view.findViewById(R.id.view);
         update = view.findViewById(R.id.Update);
-        read = view.findViewById(R.id.view);
+        delete = view.findViewById(R.id.delete);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.mainlayout, new Add_Fragment()).addToBackStack(null).addToBackStack(null).commit();
             }
         });
-        remove.setOnClickListener(new View.OnClickListener() {
+        viewData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.mainlayout, new Delete_Fragment()).addToBackStack(null).commit();
+                getFragmentManager().beginTransaction().replace(R.id.mainlayout, new ReadData_Fragment()).addToBackStack(null).commit();
             }
         });
         update.setOnClickListener(new View.OnClickListener() {
@@ -42,10 +42,10 @@ public class Dashboard_Fragment extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.mainlayout, new Update_Fragment()).addToBackStack(null).commit();
             }
         });
-        read.setOnClickListener(new View.OnClickListener() {
+        delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.mainlayout, new ReadData_Fragment()).addToBackStack(null).commit();
+                getFragmentManager().beginTransaction().replace(R.id.mainlayout, new Delete_Fragment()).addToBackStack(null).commit();
             }
         });
 
