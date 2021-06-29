@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -67,13 +66,67 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public void fetchAllData() {
+    public Cursor fetchAllData() {
         SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery("select * from DATALIST", null, null);
         while (cursor.moveToNext()) {
             Log.e(TAG, "fetchAllData: ID : " + cursor.getString(0) + "  NAME = : " + cursor.getString(1) + "   Phone = : " + cursor.getString(2) + "  Email = : " + cursor.getString(3));
         }
-        cursor.close();
+        return cursor;
     }
+    // Get User Details
+//    public ArrayList<HashMap<String, String>> GetUsers(){
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        ArrayList<HashMap<String, String>> userList = new ArrayList<>();
+//        String query = "SELECT NAME,PHONE,EMAIL FROM "+ TABLE_NAME;
+//        Cursor cursor = db.rawQuery(query,null);
+//        while (cursor.moveToFirst()){
+//            HashMap<String,String> user = new HashMap<>();
+//            user.put("id",cursor.getString(cursor.getColumnIndex(CAL_1)));
+//            user.put("name",cursor.getString(cursor.getColumnIndex(CAL_2)));
+//            user.put("phone",cursor.getString(cursor.getColumnIndex(CAL_3)));
+//            user.put("email",cursor.getString(cursor.getColumnIndex(CAL_4)));
+//            userList.add(user);
+//      //      Log.e(TAG, "fetchAllData: ID : " + cursor.getString(0) + "  NAME = : " + cursor.getString(1) + "   Phone = : " + cursor.getString(2) + "  Email = : " + cursor.getString(3));
+//        }
+//        return  userList;
+//    }
+//    public List<KYCDataModel> getAlLData() {
+//        List<KYCDataModel> notes = new ArrayList<>();
+//
+//        // Select All Query
+//        String selectQuery = "SELECT  * FROM " + KYCDataModel.TABLE_NAME + " ORDER BY " +
+//                KYCDataModel.COLUMN_NAME + " DESC";
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//
+//        // looping through all rows and adding to list
+//        if (cursor.moveToFirst()) {
+//            do {
+//                KYCDataModel kycDataModel = new KYCDataModel();
+//                kycDataModel.id = cursor.getInt(cursor.getColumnIndex(KYCDataModel.COLUMN_ID));
+//                kycDataModel.name = cursor.getString(cursor.getColumnIndex(KYCDataModel.COLUMN_NAME));
+//                kycDataModel.phone = cursor.getString(cursor.getColumnIndex(KYCDataModel.COLUMN_PHONE));
+//                notes.add(kycDataModel);
+//            } while (cursor.moveToNext());
+//        }
+//
+//        // close db connection
+//        db.close();
+//
+//        // return notes list
+//        return notes;
+//    }
+    public Cursor readAlldata()
+    {
+        SQLiteDatabase db  = this.getWritableDatabase();
+        String qry = "select * from DATALIST order by ID desc";
+        Cursor cursor =db.rawQuery(qry,null);
+        return cursor;
+    }
+
+
+
 
 }

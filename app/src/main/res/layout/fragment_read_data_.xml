@@ -6,51 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".Fregment.ReadData_Fragment">
 
-    <!--    <TableLayout-->
-    <!--        android:layout_width="fill_parent"-->
-    <!--        android:layout_height="fill_parent" >-->
-
-    <!--        <TextView android:id="@+id/tableRow1" android:layout_width="match_parent" android:layout_height="wrap_content">-->
-
-    <!--            <TextView-->
-    <!--                android:id="@+id/textView1"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:text="Id"-->
-    <!--                android:layout_weight="1" >-->
-    <!--            </TextView>-->
-
-
-    <!--            <TextView-->
-    <!--                android:id="@+id/textView2"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:text="Name"-->
-    <!--                android:layout_weight="1" >-->
-    <!--            </TextView>-->
-
-
-    <!--            <TextView-->
-    <!--                android:id="@+id/textView3"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:text="Email"-->
-    <!--                android:layout_weight="1" >-->
-    <!--            </TextView>-->
-
-    <!--        </TextView>-->
-
-
-    <!--    </TableLayout>-->
-    <!--    <TableRow android:id="@+id/tableRow2" android:layout_width="match_parent" android:layout_height="wrap_content">-->
-
-    <!--        <TextView-->
-    <!--            android:id="@+id/tvSQLinfo"-->
-    <!--            android:layout_width="fill_parent"-->
-    <!--            android:layout_height="34dp"-->
-    <!--            android:text="get the info from database"-->
-    <!--            />-->
-    <!--    </TableRow>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/user_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/ViewDATA"
