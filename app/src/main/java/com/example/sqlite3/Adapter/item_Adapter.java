@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sqlite3.R;
@@ -19,17 +20,20 @@ import com.example.sqlite3.model;
 import java.util.ArrayList;
 
 public class item_Adapter extends RecyclerView.Adapter<item_Adapter.ViewHolder> {
-    //Context context;
-    ArrayList<model> dataholder;
+    Context context;
+    ArrayList id,name,phone,email;
 
-//    public item_Adapter(Context context, ArrayList<itemModel> arrayList) {
-//        this.context = context;
-//        this.arrayList = arrayList;
-//    }
+    public item_Adapter(Context context, ArrayList id, ArrayList name, ArrayList phone, ArrayList email) {
+        this.context = context;
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+    }
 
     @Override
     public item_Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.list_row, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
@@ -37,29 +41,30 @@ public class item_Adapter extends RecyclerView.Adapter<item_Adapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(item_Adapter.ViewHolder holder, int position) {
-        holder.rowName.setText(dataholder.get(position).getName());
-        holder.rowContact.setText(dataholder.get(position).getContact());
-        holder.rowEmail.setText(dataholder.get(position).getEmail());
-
-
+        holder.rowId.setText(String.valueOf(id.get(position)));
+        holder.rowName.setText(String.valueOf(name.get(position)));
+        holder.rowPhone.setText(String.valueOf(phone.get(position)));
+        holder.rowEmail.setText(String.valueOf(email.get(position)));
     }
 
     @Override
     public int getItemCount() {
-        return dataholder.size();
+        return id.size();
+
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final Context context;
+        TextView rowId;
         TextView rowName;
-        TextView rowContact;
+        TextView rowPhone;
         TextView rowEmail;
-        ImageButton delete;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            rowId = itemView.findViewById(R.id.textView8);
             rowName = itemView.findViewById(R.id.textView3);
-            rowContact = itemView.findViewById(R.id.textView4);
+            rowPhone = itemView.findViewById(R.id.textView4);
             rowEmail = itemView.findViewById(R.id.textView5);
             context = itemView.getContext();
         }

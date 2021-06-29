@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,46 +24,40 @@ import java.util.ArrayList;
 
 public class ReadData_Fragment extends Fragment {
 
-    Button viewData;
     RecyclerView recyclerView;
-    ArrayList<model> dataholder;
-    DatabaseHelper db ;
+    ArrayList<String> id, name, phone, email;
+    DatabaseHelper db;
+    item_Adapter item_adapter;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_read_data_, container, false);
-       recyclerView = view.findViewById(R.id.user_list);
-       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-       db = new DatabaseHelper(getContext());
-       Cursor cursor = db.readAlldata();
-       while (cursor.moveToFirst())
-       {
-           model obj = new model(cursor.getString(1),cursor.getString(2),cursor.getString(3));
-            dataholder.add(obj);
-       }
-       item_Adapter item_adapter = new item_Adapter();
-       recyclerView.setAdapter(item_adapter);
-
-
-
-//        viewData =view.findViewById(R.id.ViewDATA);
-//        viewData.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                db.fetchAllData();
-////                db=new DatabaseHelper(getContext());
-////                ArrayList<HashMap<String, String>> userList = db.GetUsers();
-////                ListView lv = (ListView)view.findViewById(R.id.user_list);
-////                ListAdapter adapter = new SimpleAdapter(getContext(),
-////                        userList,
-////                        R.layout.list_row,
-////                        new String[]{"name","phone","email"},
-////                        new int[]{R.id.name, R.id.phone, R.id.email});
-////                lv.setAdapter(adapter);
-//                Toast.makeText(getContext(), "OPEN LOGCAT in Android Studio ", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        recyclerView = view.findViewById(R.id.user_list);
+        db = new DatabaseHelper(getContext());
+        id = new ArrayList<>();
+        name = new ArrayList<>();
+        phone = new ArrayList<>();
+        email = new ArrayList<>();
+        storeDataInArray();
+        item_adapter = new item_Adapter(getContext(), id, name, phone, email);
+        recyclerView.setAdapter(item_adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         return view;
     }
+
+    private void storeDataInArray() {
+        Cursor cursor = db.readAlldata();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(getContext(), "No data found", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                id.add(cursor.getString(0));
+                name.add(cursor.getString(1));
+                phone.add(cursor.getString(2));
+                email.add(cursor.getString(3));
+            }
+        }
+    }
+
 }

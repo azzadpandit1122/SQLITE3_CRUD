@@ -27,7 +27,7 @@ public class model {
         this.email = email;
     }
 
-    public model(String name, String contact, String email) {
+    public model() {
         this.name = name;
         this.contact = contact;
         this.email = email;
