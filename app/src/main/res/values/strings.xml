@@ -5,4 +5,15 @@
     <string name="id">ID</string>
     <string name="UPDATE">UPDATE</string>
     <string name="VIEW_DATA">VIEW DATA</string>
+    <string name="Residential">Residential</string>
+    <string name="PreviusMonth">Previus Months</string>
+    <string name="Todays">Todays</string>
+    <string name="Industrial">Industrial</string>
+    <string name="Commercial">Commercial</string>
+    <string name="Religious">Religious</string>
+    <string name="Number">142</string>
+    <string-array name="payment_mode">
+        <item>Online</item>
+        <item>Offline</item>
+    </string-array>
 </resources>

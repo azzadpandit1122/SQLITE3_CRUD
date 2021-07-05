@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.sqlite3.R;
+import com.example.sqlite3.UsreChargeCollection_Fragment;
 
 public class Dashboard_Fragment extends Fragment {
 
-    Button add, viewData, update, delete;
+    Button add, viewData, update, delete, userChargeCollection;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,6 +25,14 @@ public class Dashboard_Fragment extends Fragment {
         viewData = view.findViewById(R.id.view);
         update = view.findViewById(R.id.Update);
         delete = view.findViewById(R.id.delete);
+        userChargeCollection = view.findViewById(R.id.UserChargeCollection);
+        userChargeCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.mainlayout, new UsreChargeCollection_Fragment()).addToBackStack(null).commit();
+            }
+        });
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

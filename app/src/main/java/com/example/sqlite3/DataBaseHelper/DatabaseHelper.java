@@ -13,6 +13,7 @@ import com.example.sqlite3.model;
 import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
+import static android.os.Build.ID;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "data3.db";

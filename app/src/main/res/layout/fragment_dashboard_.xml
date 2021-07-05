@@ -8,6 +8,17 @@
     tools:context=".Fregment.Dashboard_Fragment">
 
     <Button
+        android:id="@+id/UserChargeCollection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="User Charge Collection"
+        app:layout_constraintBottom_toTopOf="@+id/Update"
+        app:layout_constraintEnd_toEndOf="@+id/Update"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/add" />
+
+    <Button
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
