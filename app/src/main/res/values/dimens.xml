@@ -2,5 +2,5 @@
 <resources>
     <dimen name="HeadingTextSize">18dp</dimen>
     <dimen name="NumberTextSize">25dp</dimen>
-    <dimen name="LittelTextSize">9dp</dimen>
+    <dimen name="LittelTextSize">12dp</dimen>
 </resources>

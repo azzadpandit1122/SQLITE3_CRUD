@@ -12,8 +12,37 @@
     <string name="Commercial">Commercial</string>
     <string name="Religious">Religious</string>
     <string name="Number">142</string>
+    <string name="CollectionActivity">Collection Activity</string>
+    <string name="TwoDaysAgo">2 days ago</string>
+    <string name="Open">Open</string>
+    <string name="Panding">Panding</string>
+    <string name="Close">Close</string>
+    <string name="TimelineDetails">Timeline Details</string>
+    <string name="ProductId">Product Id</string>
+    <string name="ResetFilter">Reset Filter</string>
+    <string name="ProductName">Product Name</string>
+    <string name="EnterProductName">Enter Product Name</string>
+    <string name="ProductQuality">Product Quality</string>
+    <string name="ProductPrice">Product Price</string>
+    <string name="equal"> =             </string>
+    <string name="BuyerSatisfaction">Buyer Satisfaction</string>
+    <string name="InSockFrom">In Sock From</string>
+    <string name="birthday">DD-MM-YYYY</string>
     <string-array name="payment_mode">
         <item>Online</item>
         <item>Offline</item>
+    </string-array>
+    <string-array name="Select_Quality">
+        <item>Select Quality</item>
+        <item>Good</item>
+        <item>Poor</item>
+    </string-array>
+    <string-array name="Select_Satisfaction">
+        <item>Select Satisfaction</item>
+        <item>one star</item>
+        <item>two star</item>
+        <item>three star</item>
+        <item>four star</item>
+        <item>five star</item>
     </string-array>
 </resources>
